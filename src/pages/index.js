@@ -1,6 +1,6 @@
 import React from "react";
 import { jsx } from "@emotion/react";
-import { graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
 import { rhythm } from "../utils/typography";
 
 import Layout from "../components/layout";
@@ -22,21 +22,29 @@ export default function Home({ data }) {
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
-            <h3
+            <Link
+              to={node.fields.slug}
               css={jsx`
-                margin-bottom: ${rhythm(1 / 4)};
+                text-decoration: none;
+                color: inherit;
               `}
             >
-              {node.frontmatter.title}{" "}
-              <span
+              <h3
                 css={jsx`
+                margin-bottom: ${rhythm(1 / 4)};
+              `}
+              >
+                {node.frontmatter.title}{" "}
+                <span
+                  css={jsx`
                   color: #bbb;
                 `}
-              >
-                — {node.frontmatter.date}
-              </span>
-            </h3>
-            <p>{node.excerpt}</p>
+                >
+                  — {node.frontmatter.date}
+                </span>
+              </h3>
+              <p>{node.excerpt}</p>
+            </Link>
           </div>
         ))}
       </div>
@@ -53,6 +61,9 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY")
+          }
+          fields {
+            slug
           }
           excerpt
         }
