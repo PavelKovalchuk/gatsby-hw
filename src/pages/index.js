@@ -5,6 +5,7 @@ import { rhythm } from "../utils/typography";
 
 import Layout from "../components/layout";
 import TestImage from "../components/testImage";
+import TestMultipleImage from "../components/testMultipleImage";
 
 export default function Home({ data }) {
   console.log(data);
@@ -20,8 +21,6 @@ export default function Home({ data }) {
         >
           Amazing Pandas Eating Things
         </h1>
-
-        <TestImage />
 
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
@@ -51,6 +50,10 @@ export default function Home({ data }) {
             </Link>
           </div>
         ))}
+
+        <TestImage />
+
+        <TestMultipleImage />
       </div>
     </Layout>
   );

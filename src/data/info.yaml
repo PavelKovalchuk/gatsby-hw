@@ -1,0 +1,8 @@
+# Test data records
+- itemFirst:
+  title: "title First"
+  image: ../images/test_image.jpg
+- itemSecond:
+  title: "title Second"
+  image: ../images/test_image.jpg
+   
