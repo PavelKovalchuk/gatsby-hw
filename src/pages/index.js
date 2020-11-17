@@ -6,6 +6,7 @@ import { rhythm } from "../utils/typography";
 import Layout from "../components/layout";
 import TestImage from "../components/testImage";
 import TestMultipleImage from "../components/testMultipleImage";
+import Download from "../components/download";
 
 export default function Home({ data }) {
   console.log(data);
@@ -51,8 +52,8 @@ export default function Home({ data }) {
           </div>
         ))}
 
+        <Download />
         <TestImage />
-
         <TestMultipleImage />
       </div>
     </Layout>

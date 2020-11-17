@@ -5,6 +5,8 @@ import { rhythm } from "../utils/typography";
 
 import { useStaticQuery, Link, graphql } from "gatsby";
 
+import logo from "../images/logo.png";
+
 export default function Layout({ children }) {
   const data = useStaticQuery(
     graphql`
@@ -35,6 +37,11 @@ export default function Layout({ children }) {
             font-style: normal;
           `}
         >
+          <img
+            src={logo}
+            alt="Logo"
+            style={{ width: "50px", height: "50px", margin: 0 }}
+          />
           {data.site.siteMetadata.title}
         </h3>
       </Link>
